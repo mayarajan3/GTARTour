@@ -5,8 +5,12 @@
 
 <body style='margin : 0px; overflow: hidden;'>
 <a-scene embedded="" arjs="trackingMethod: best;" class="" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui="">
-  <a-image id="test" src="test.png" position="0 0 0" rotation="-90 0 0" width="50" height="50" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="1 1 1" visible="" material="" geometry=""></a-image>
-  <!-- Display 3D bee -->
-  <a-entity gltf-model="url(cartoon_bee/scene.gltf)" width="20" height="20" scale="0.2 0.2 0.2" rotation = "0 0 0" position = "1 1 1"></a-entity>
+  <!--a-image id="test" src="test.png" position="0 0 0" rotation="-90 0 0" width="50" height="50" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="1 1 1" visible="" material="" geometry=""></a-image-->
+  <!-- Hiro Marker -->
+  <a-marker preset='hiro'>
+    <!-- 3D Bee Model -->
+    <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0"></a-entity>
+  </a-marker>
+  <a-entity camera></a-entity>
 </a-scene>
 </body>
