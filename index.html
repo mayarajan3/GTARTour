@@ -2,17 +2,6 @@
 <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
 <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 <script>
-
-var x = document.getElementById("sound");
-
-function playAudio() {
-  x.play();
-}
-
-function pauseAudio() {
-  x.pause();
-}
-
 AFRAME.registerComponent('soundhandler', {
     tick: function () {
            var entity = document.querySelector('[sound]');
@@ -32,13 +21,12 @@ AFRAME.registerComponent('soundhandler', {
   <!-- Pre-loaded assets -->
   <a-assets>
     <img id="my-image" src="DSC_0639.JPG">
-    <audio id="sound" src="testing.mp3"></audio>
+    <audio id="sound" src="testing.mp3" preload="auto"></audio>
   </a-assets>
 
   <!-- Hiro Marker -->
   <a-marker id="animated-marker" preset='hiro'>
-    <button id="unmuteButton" onclick="playAudio()">HERE</button>
-    <a-entity sound="src: #sound"></a-entity>
+    <a-entity sound="src: #sound" autoplay="true"></a-entity>
     <!-- 2D Image -->
     <a-image id="test" src="#my-image" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image>
     <!-- 3D Bee Model -->
@@ -47,10 +35,6 @@ AFRAME.registerComponent('soundhandler', {
   </a-marker>
 
   <a-entity camera></a-entity>
-  <audio id="nyan" src="https://designshack.net/tutorialexamples/html5-audio-player/media/evidence-song.mp3" preload="metadata" type="audio/mpeg">
-   Your browser does not support the audio element.
-</audio>
-<a class="btn" id="nyan-btn">play / pause</a>
 </a-scene>
 
 
