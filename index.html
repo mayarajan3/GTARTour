@@ -12,9 +12,6 @@ function playAudio() {
 function pauseAudio() {
   x.pause();
 }
-document.querySelector('button').addEventListener('click', function() {
-    playAudio();
-});
 
 AFRAME.registerComponent('soundhandler', {
     tick: function () {
@@ -40,7 +37,7 @@ AFRAME.registerComponent('soundhandler', {
 
   <!-- Hiro Marker -->
   <a-marker id="animated-marker" preset='hiro'>
-    <button id="unmuteButton"></button>
+    <button id="unmuteButton" onclick="playAudio()">HERE</button>
     <a-entity sound="src: #sound"></a-entity>
     <!-- 2D Image -->
     <a-image id="test" src="#my-image" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image>
