@@ -1,6 +1,36 @@
 <head>
 <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
 <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<script>
+var playing = false;
+
+//HTML5 audio, will need user touch input to start on mobile
+var intro = new Audio("testing.mp3");
+
+//Detect end of audio
+intro.addEventListener("ended", function() {
+    intro.currentTime = 0;
+    playing = false;
+});
+
+AFRAME.registerComponent('markerhandler', {
+    init: function() {
+        // Set up the tick throttling. Will check if marker is active every 500ms
+        this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
+    },
+    tick: function(t, dt) {
+
+        if (document.querySelector("#bee").object3D.visible == true && playing == false) {
+            // MARKER IS PRESENT
+            intro.play();
+            playing = true;
+        } else {
+            // MARKER IS HIDDEN, do nothing (up to you)
+        }
+
+    }
+});
+</script>
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
@@ -15,7 +45,7 @@
     <!-- 2D Image -->
     <a-image id="test" src="#my-image" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image>
     <!-- 3D Bee Model -->
-    <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1" sound="src: url(#sound); autoplay: true"></a-entity>
+    <a-entity gltf-model="url(cartoon_bee/scene.gltf)" id="bee" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
   </a-marker>
   <a-entity camera></a-entity>
 </a-scene>
