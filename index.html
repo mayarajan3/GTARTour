@@ -37,7 +37,7 @@ function pauseAudio() {
 }
 document.querySelector('button').addEventListener('click', function() {
     playAudio();
-}
+});
 AFRAME.registerComponent('soundhandler', {
     tick: function () {
            var entity = document.querySelector('[sound]');
