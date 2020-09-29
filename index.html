@@ -8,6 +8,7 @@
   <!-- Pre-loaded assets -->
   <a-assets>
     <img id="my-image" src="DSC_0639.JPG">
+    <audio id="sound" src="testing.mp3" preload="auto"></audio>
   </a-assets>
   <!-- Hiro Marker -->
   <a-marker preset='hiro'>
@@ -15,12 +16,9 @@
     <a-image id="test" src="#my-image" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image>
     <!-- 3D Bee Model -->
     <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
+    <a-entity sound="src: #sound" autoplay="true"></a-entity>
   </a-marker>
   <a-entity camera></a-entity>
-  <audio controls autoplay>
-    <source src="testing.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
 </a-scene>
 
 </body>
