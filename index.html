@@ -10,9 +10,10 @@
     <img id="my-image" src="DSC_0639.JPG">
     <audio id="sound" src="testing.mp3" preload="auto" autoplay="true"></audio>
   </a-assets>
-  <a-entity sound="src: #sound" autoplay="true"></a-entity>
+
   <!-- Hiro Marker -->
   <a-marker id="animated-marker" preset='hiro'>
+    <a-entity sound="src: #sound" autoplay="true"></a-entity>
     <!-- 2D Image -->
     <a-image id="test" src="#my-image" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image>
     <!-- 3D Bee Model -->
