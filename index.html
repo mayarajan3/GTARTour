@@ -42,7 +42,7 @@
 
   initAudio("testing.mp3", "animated-marker", "markerhandler");
   initAudio("res/PCB_Fabrication/PCB_Fabrication.mp3", "barcode_0", "barcode_0_handler");
-    initAudio("Lasercutter.mp3", "barcode_1", "barcode_1_handler");
+  initAudio("Lasercutter.mp3", "barcode_1", "barcode_1_handler");
 
 </script>
 </head>
@@ -76,7 +76,7 @@
   </a-marker>
 
   <!-- Barcode Marker 1 -->
-  <a-marker type="barcode" value="1">
+  <a-marker barcode_1_handler id = "barcode_1" type="barcode" value="1">
     <a-entity sound="src: #sound" autoplay="true"></a-entity>
     <!-- 2D Image -->
     <a-image id="test" src="#my-image" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image>
