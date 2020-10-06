@@ -2,32 +2,47 @@
 <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
 <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
 <script>
-  //Script to play audio on marker detected
+  // Script handling audio
 
-  //HTML5 audio, will need user touch input to start on mobile
-  var audio = new Audio("testing.mp3");
+  /**
+   * Function to initialize new audio file to play when a marker is located
+   * To initialize a new audio handler, add the `id` attribute and handler name to the desired HTML a-marker tag
+   * Eg. <a-marker id = "marker_id", handler_name>
+   * Then call this function with the parameters accordingly
+   * @param audio_path String path of the audio file
+   * @param marker_id String id given to the marker (added to the a-marker tag in the HTML)
+   * @param handler_name String name given to the handler to be registered to the marker (also added to the HTML a-marker tag)
+  **/
 
-  //Detect end of audio
-  audio.addEventListener("ended", function() {
-    audio.currentTime = 0;
-  });
+  function initAudio(audio_path, marker_id, handler_name) {
 
-  //Register component with hiro marker to detect its visibility
+    // Create HTML5 audio element
 
-  AFRAME.registerComponent('markerhandler', {
-    init: function() {
-      // Set up the tick throttling. Will check if marker is active every 500ms
-      this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
-    },
-    tick: function(t, dt) {
-      if (document.querySelector("#animated-marker").object3D.visible == true) {
-        // MARKER IS PRESENT
-        audio.play();
-      } else {
-        // MARKER IS HIDDEN, do nothing (up to you)
+    var audio = new Audio(audio_path)
+
+    // Register audio playing component
+
+    AFRAME.registerComponent(handler_name, {
+      init: function() {
+        // Set up the tick throttling. Will check if marker is active every 500ms
+        this.tick = AFRAME.utils.throttleTick(this.tick, 500, this);
+      },
+      tick: function(t, dt) {
+        if (document.querySelector('#' + marker_id).object3D.visible == true) {
+          // MARKER IS PRESENT: play audio
+          audio.play();
+        } else {
+          // MARKER IS HIDDEN, do nothing
+        }
       }
-    }
-  });
+    });
+  }
+
+  // Initialize audio files and handlers
+
+  initAudio("testing.mp3", "animated-marker", "markerhandler");
+  initAudio("res/PCB_Fabrication/PCB_Fabrication.mp3", "barcode_0", "barcode_0_handler");
+
 </script>
 </head>
 
@@ -51,7 +66,7 @@
   </a-marker>
 
   <!-- Barcode Marker 0 -->
-  <a-marker type="barcode" value="0">
+  <a-marker barcode_0_handler id = "barcode_0" type="barcode" value="0">
     <a-entity sound="src: #sound" autoplay="true"></a-entity>
     <!-- 2D Image -->
     <a-image id="test" src="#my-image" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image>
