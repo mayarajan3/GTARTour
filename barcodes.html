@@ -1,0 +1,61 @@
+<head>
+    <title> Barcodes </title>
+    <style>
+        body {
+            font-family: 'Helvetica', 'sans-serif';
+        }
+
+        #main {
+            margin: 10px;
+        }
+
+        .barcode {
+            display: inline-block;
+        }
+
+        .barcode img {
+            height: 80%;
+            display: block;
+        }
+
+        .barcode span {
+            display: block;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id = "main">
+        <h1> The Hive </h1>
+    </div>
+</body>
+
+<script>
+
+    /**
+    * Adds HTML image to the document body
+    * @param Iamge path
+    * @param desc Image caption
+    **/
+
+    function addImage(src, desc) {
+        var body = document.getElementById('main'),
+        section = document.createElement('div'),
+        image = document.createElement('img'),
+        description = document.createElement('span');
+        section.setAttribute('class', 'barcode')
+        image.setAttribute('src', src);
+        description.innerHTML = desc;
+        section.appendChild(image);
+        section.appendChild(description);
+        body.appendChild(section);
+    }
+
+    addImage('barcodes/barcode0.png', 'PCB Fabrication Station');
+    addImage('barcodes/barcode1.png', 'Laser Cutter');
+    addImage('barcodes/barcode2_v2.png', '3D Printers');
+    addImage('barcodes/barcode1.png', 'Machine Shop');
+
+</script>
