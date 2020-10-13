@@ -1,0 +1,9 @@
+On the second floor of the hive, you can find our bench top work station with all the equipment you will need to test and build projects. 
+
+ Our Waveform generator is an electronic test equipment used to generate electrical waveforms! The resulting waveform is then inserted into a device for testing and analyzing as it progresses through it. This helps confirm the proper function of the device or helps pinpoint the fallout.
+
+An oscilloscope is an electronic test instrument that tests and displays signal voltages as waveforms. The instrument features triggers that cause the oscilloscope to place a certain feature of a waveform at a specific place on the screen. It also features probe connections where the alligator clip is the ground and the retractable hook is the signal from the source of to the instrument. The vertical axis of the oscilloscope screen represents the voltage, while the horizontal axis represents the time (history).
+
+This is a digital multimeter which is a device that measures voltage, current and resistance. It is also used for continuity and diode testing. Since it can display only one value at a time, it is used to measure constant values. Some of which include DC Voltage, AC Voltage, DC Current, AC Current, Resistance, and Capacitance.
+
+A soldering iron is a hand tool used to heat solder (a metal alloy used to create strong permanent bonds). The heat for the iron is usually from an electrical supply at high temperatures above the melting point of the solder which allows for the solder to flow between the workpieces needing to be joined. The soldering iron is made up of an insulated handle and a heated pointed metal iron tip.
