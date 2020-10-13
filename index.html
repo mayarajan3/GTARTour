@@ -45,6 +45,7 @@
   initAudio("Lasercutter.mp3", "barcode_1", "barcode_1_handler");
   initAudio("stratasys F170 printer.mp3", "barcode_2", "barcode_2_handler");
   initAudio("res/Machine_Shop/Machine_Shop.mp3", "barcode_3", "barcode_3_handler");
+  initAudio("benchtop.mp3", "barcode_4", "barcode_4_handler");
 
 
 </script>
@@ -59,9 +60,12 @@
     <img id="3Dprinter" src="HIVE_Floor1/DSC_0729.JPG">
     <img id = "PCB" src="HIVE_Floor1/DSC_0722.JPG">
     <img id = "machineShop" src="HIVE_Floor1/DSC_0750.JPG">
+    <img id = "benchtop" src="doubleDesk.jpg">
     <audio id="sound" src="testing.mp3" preload="auto"></audio>
     <audio id="lcaudio" src="Lasercutter.mp3" preload="auto"></audio>
     <audio id="printeraudio" src="stratasys F170 printer.mp3" preload="auto"></audio>
+    <audio id="machineShop" src="Machine_Shop.mp3" preload="auto"></audio>
+    <audio id="benchtopa" src="benchtop.mp3" preload="auto"></audio>
   </a-assets>
 
   <!-- https://github.com/artoolkit/ARToolKit5/tree/master/doc/patterns/Matrix%20code%203x3%20(72dpi) -->
@@ -103,12 +107,22 @@
 
   <!-- Barcode Marker 3 -->
   <a-marker barcode_3_handler id= "barcode_3" type="barcode" value="3">
-    <a-entity printeraudio="src: #sound" autoplay="true"></a-entity>
+    <a-entity machineShop="src: #sound" autoplay="true"></a-entity>
     <!-- 2D Image -->
     <a-image id="test" src="#machineShop" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image>
     <!-- 3D Bee Model -->
     <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
   </a-marker>
+  
+   <!-- Barcode Marker 4 -->
+  <a-marker barcode_4_handler id= "barcode_4" type="barcode" value="4">
+    <a-entity benchtopa="src: #sound" autoplay="true"></a-entity>
+    <!-- 2D Image -->
+    <a-image id="test" src="#benchtop" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image>
+    <!-- 3D Bee Model -->
+    <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
+  </a-marker>
+
 
   <a-entity camera></a-entity>
 </a-scene>
