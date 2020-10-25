@@ -17,19 +17,20 @@
 AFRAME.registerComponent('vidhandler', {
   init: function () {
     this.toggle = false;
-    document.querySelector("#vid").pause(); //reference to the video
-  },
-  tick:function(){  
-   if(document.querySelector("a-marker").object3D.visible == true){
+    this.vid = document.querySelector("#vid")
+    this.vid.pause()
+},
+tick:function(){
+   if(this.el.object3D.visible == true){
      if(!this.toggle){
        this.toggle = true;
-       document.querySelector("#vid").play();
-     }
-   }else{
-     this.toggle = false;
-     document.querySelector("#vid").pause();
-   }
+       this.vid.play();
+    }
+  }else{
+    this.toggle = false;
+    this.vid.pause();
   }
+ }
 });
   
   function initAudio(audio_path, marker_id, handler_name) {
@@ -84,7 +85,7 @@ AFRAME.registerComponent('vidhandler', {
     <audio id="printeraudio" src="stratasys F170 printer.mp3" preload="auto"></audio>
     <audio id="machineShop" src="Machine_Shop.mp3" preload="auto"></audio>
     <audio id="benchtopa" src="benchtop.mp3" preload="auto"></audio>
-    <video id="scob" scr="scob test.mp4" preload="auto"></video>
+    <video id="scob" scr="scob test.mp4" loop="true" crossorigin>
   </a-assets>
 
   <!-- https://github.com/artoolkit/ARToolKit5/tree/master/doc/patterns/Matrix%20code%203x3%20(72dpi) -->
