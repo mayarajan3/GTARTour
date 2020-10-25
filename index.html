@@ -14,24 +14,7 @@
    * @param handler_name String name given to the handler to be registered to the marker (also added to the HTML a-marker tag)
   **/
   
-AFRAME.registerComponent('vidhandler', {
-  init: function () {
-    this.toggle = false;
-    this.vid = document.querySelector("#vid")
-    this.vid.pause()
-},
-tick:function(){
-   if(this.el.object3D.visible == true){
-     if(!this.toggle){
-       this.toggle = true;
-       this.vid.play();
-    }
-  }else{
-    this.toggle = false;
-    this.vid.pause();
-  }
- }
-});
+
   
   function initAudio(audio_path, marker_id, handler_name) {
 
