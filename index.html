@@ -13,7 +13,25 @@
    * @param marker_id String id given to the marker (added to the a-marker tag in the HTML)
    * @param handler_name String name given to the handler to be registered to the marker (also added to the HTML a-marker tag)
   **/
-
+  
+AFRAME.registerComponent('vidhandler', {
+  init: function () {
+    this.toggle = false;
+    document.querySelector("#vid").pause(); //reference to the video
+  },
+  tick:function(){  
+   if(document.querySelector("a-marker").object3D.visible == true){
+     if(!this.toggle){
+       this.toggle = true;
+       document.querySelector("#vid").play();
+     }
+   }else{
+     this.toggle = false;
+     document.querySelector("#vid").pause();
+   }
+  }
+});
+  
   function initAudio(audio_path, marker_id, handler_name) {
 
     // Create HTML5 audio element
@@ -75,7 +93,8 @@
     <a-entity sound="src: #sound" autoplay="true"></a-entity>
     <!-- 2D Image -->
     <!-- <a-image id="test" src="#my-image" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image> -->
-    <a-video id="scobt" src="#scob" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image>
+    <!-- <a-video id="scobt" src="#scob" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image> -->
+    <a-video scob> </a-video>
     <!-- 3D Bee Model -->
     <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
   </a-marker>
