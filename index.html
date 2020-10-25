@@ -16,6 +16,34 @@
   **/
   
 
+   // Register video playing component 
+  
+     AFRAME.registerComponent('vidhandler', {
+        init: function() {
+            this.toggle = false;
+            this.vid = document.querySelector("#vid");
+            this.vid.pause();
+        },
+        tick: function() {
+            if (this.el.object3D.visible == true) {
+                if (!this.toggle) {
+                    this.toggle = true;
+                    this.vid.play();
+                }
+            } else {
+                this.toggle = false;
+                this.vid.pause();
+            }
+        }
+    });
+
+    function refrespage() {
+        location.reload();
+    }
+
+    function playvid() {
+        vid.play();
+    }
   
   function initAudio(audio_path, marker_id, handler_name) {
 
@@ -49,7 +77,7 @@
   initAudio("stratasys F170 printer.mp3", "barcode_2", "barcode_2_handler");
   initAudio("res/Machine_Shop/Machine_Shop.mp3", "barcode_3", "barcode_3_handler");
   initAudio("benchtop.mp3", "barcode_4", "barcode_4_handler");
-
+ 
 </script>
 </head>
 
@@ -132,32 +160,7 @@
 </a-scene>
 
 <script>
- AFRAME.registerComponent('vidhandler', {
-        init: function() {
-            this.toggle = false;
-            this.vid = document.querySelector("#vid");
-            this.vid.pause();
-        },
-        tick: function() {
-            if (this.el.object3D.visible == true) {
-                if (!this.toggle) {
-                    this.toggle = true;
-                    this.vid.play();
-                }
-            } else {
-                this.toggle = false;
-                this.vid.pause();
-            }
-        }
-    });
 
-    function refrespage() {
-        location.reload();
-    }
-
-    function playvid() {
-        vid.play();
-    }
   
 AFRAME.registerComponent('soundhandler', {
     tick: function () {
