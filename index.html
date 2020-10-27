@@ -8,6 +8,53 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
+
+    // Script handling video
+
+    /**
+     * Function to initialize video handler so video plays on marker detection
+     * Before intializing video, add <video> asset to the <a-assets> group, adding src and id accordingly
+     * Also add an arbitrary handler_name to the <a-marker> you want the video to be attached to
+     * @param video_id id given to the <video> tag in <a-assets>
+     * @param handler_name name for the handler to be register
+    **/
+
+    function initVideo(video_id, handler_name) {
+        // Register video playing component
+
+         AFRAME.registerComponent(handler_name, {
+            init: function() {
+                this.toggle = false;
+                this.vid = document.querySelector("#" + video_id);
+                this.vid.pause();
+            },
+            tick: function() {
+                if (this.el.object3D.visible == true) {
+                    if (!this.toggle) {
+                        this.toggle = true;
+                        this.vid.play();
+                    }
+                } else {
+                    this.toggle = false;
+                    this.vid.pause();
+                }
+            }
+        });
+    }
+
+    function refrespage() {
+        location.reload();
+    }
+
+    function playvid() {
+        vid.play();
+    }
+
+    //Initialize video files and handlers
+    initVideo("scobt", "vidhandler")
+    initVideo("iac","iac_handler");
+
+
   // Script handling audio
 
   /**
@@ -20,35 +67,6 @@
    * @param handler_name String name given to the handler to be registered to the marker (also added to the HTML a-marker tag)
   **/
 
-
-   // Register video playing component
-
-     AFRAME.registerComponent('vidhandler', {
-        init: function() {
-            this.toggle = false;
-            this.vid = document.querySelector("#vid");
-            this.vid.pause();
-        },
-        tick: function() {
-            if (this.el.object3D.visible == true) {
-                if (!this.toggle) {
-                    this.toggle = true;
-                    this.vid.play();
-                }
-            } else {
-                this.toggle = false;
-                this.vid.pause();
-            }
-        }
-    });
-
-    function refrespage() {
-        location.reload();
-    }
-
-    function playvid() {
-        vid.play();
-    }
 
   function initAudio(audio_path, marker_id, handler_name) {
 
@@ -104,17 +122,17 @@
     <audio id="machineShop" src="Machine_Shop.mp3" preload="auto"></audio>
     <audio id="benchtopa" src="benchtop.mp3" preload="auto"></audio>
     <video id="scobt" autoplay loop="true" preload="auto" src="scob test.mp4"></video>
-</a-scene>
+    <video id="iac" autoplay loop="true" preload="auto" src="res/CommLab.mp4">
 
   </a-assets>
 
   <!-- https://github.com/artoolkit/ARToolKit5/tree/master/doc/patterns/Matrix%20code%203x3%20(72dpi) -->
   <!-- Hiro Marker -->
-  <a-marker markerhandler id="animated-marker" preset='hiro'>
+  <a-marker vidhandler id="animated-marker" preset='hiro'>
     <a-entity sound="src: #sound" autoplay="true"></a-entity>
     <!-- 2D Image -->
     <!-- <a-image id="test" src="#my-image" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image> -->
-    <a-video id="scob" src="#scobt" position="0 0 0" rotation="-90 0 0" width="24" height="13.5" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-video> 
+    <a-video id="scob" src="#scobt" position="0 0 0" rotation="-90 0 0" width="24" height="13.5" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-video>
     <!-- 3D Bee Model -->
     <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
   </a-marker>
@@ -172,6 +190,10 @@
     <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
   </a-marker>
 
+  <a-marker iac_handler id="barcode_6" type="barcode" value="6">
+    <a-video src="#iac" width="1.4375" height="1" rotation="270 0 0"></a-video>
+    <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
+  </a-marker>
 
   <a-entity camera></a-entity>
 </a-scene>
