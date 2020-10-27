@@ -123,7 +123,7 @@
     <audio id="machineShop" src="Machine_Shop.mp3" preload="auto"></audio>
     <audio id="skywalker_audio" src="SkywalkerHand.mp3" preload="auto"></audio>
     <audio id="benchtopa" src="benchtop.mp3" preload="auto"></audio>
-    <video id="scobt" autoplay loop="true" preload="auto" src="scob test.mp4"></video>
+    <video id="scob" autoplay loop="true" preload="auto" src="scob.mp4"></video>
     <video id="iac" autoplay loop="true" preload="auto" src="res/CommLab.mp4">
     <video id="skywalker_performance" autoplay loop="true" preload="auto" src="skywalker_performance.mp4"></video>
 
@@ -132,10 +132,10 @@
   <!-- https://github.com/artoolkit/ARToolKit5/tree/master/doc/patterns/Matrix%20code%203x3%20(72dpi) -->
   <!-- Hiro Marker -->
   <a-marker vidhandler id="animated-marker" preset='hiro'>
-    <a-entity sound="src: #sound" autoplay="true"></a-entity>
+    <!-- <a-entity sound="src: #sound" autoplay="true"></a-entity> -->
     <!-- 2D Image -->
     <!-- <a-image id="test" src="#my-image" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image> -->
-    <a-video id="scob" src="#scobt" position="0 0 0" rotation="-90 0 0" width="24" height="13.5" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-video>
+    <a-video id="scob" src="#scob" position="0 0 0" rotation="-90 0 0" width="24" height="13.5" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-video>
     <!-- 3D Bee Model -->
     <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
   </a-marker>
