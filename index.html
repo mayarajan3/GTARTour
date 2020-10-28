@@ -128,6 +128,7 @@
     <video id="iac" autoplay loop="true" preload="auto" src="res/CommLab.mp4">
     <video id="skywalker_performance" autoplay loop="true" preload="auto" src="skywalker_performance.mp4"></video>
     <video id="hive1" autoplay loop="true" preload="auto" src="hive1.mp4"></video>
+    <video id="VIP" autoplay loop="true" preload="auto" src="VIP.mp4"></video>
 
   </a-assets>
 
@@ -202,6 +203,11 @@
       
    <a-marker hive1_handler id="barcode_7" type="barcode" value="7">
     <a-video src="#hive1" width="1.4375" height="1" rotation="270 0 0"></a-video>
+    <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
+  </a-marker>
+      
+  <a-marker VIP_handler id="barcode_8" type="barcode" value="8">
+    <a-video src="#VIP" width="1.4375" height="1" rotation="270 0 0"></a-video>
     <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
   </a-marker>
 
