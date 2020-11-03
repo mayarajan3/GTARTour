@@ -51,12 +51,13 @@
     }
 
     //Initialize video files and handlers
-    initVideo("scob", "vidhandler")
-    initVideo("hive1", "hive1_handler")
+    initVideo("scob", "vidhandler");
+    initVideo("hive1", "hive1_handler");
     initVideo("iac","iac_handler");
-    initVideo("skywalker_performance", "skywalker_handler")
-    initVideo("VIP", "vip_handler")
-    initVideo("CoC", "coc_handler")
+    initVideo("skywalker_performance", "skywalker_handler");
+    initVideo("VIP", "vip_handler");
+    initVideo("CoC", "coc_handler");
+    initVideo("ICRC", "icrc_handler");
 
 
   // Script handling audio
@@ -127,11 +128,12 @@
     <audio id="skywalker_audio" src="SkywalkerHand.mp3" preload="auto"></audio>
     <audio id="benchtopa" src="benchtop.mp3" preload="auto"></audio>
     <video id="scob" loop="true" preload="auto" src="scob.mp4"></video>
-    <video id="iac" loop="true" preload="auto" src="res/CommLab.mp4">
+    <video id="iac" loop="true" preload="auto" src="res/IACCommLab.mp4">
     <video id="skywalker_performance" loop="true" preload="auto" src="skywalker_performance.mp4"></video>
     <video id="hive1" loop="true" preload="auto" src="hive1.mp4"></video>
     <video id="VIP" loop="true" preload="auto" src="VIP.mp4"></video>
     <video id="CoC" loop="true" preload="auto" src="CoC_video.mp4"></video>
+    <video id="ICRC" loop="true" preload="auto" src="icrc_final.mp4"></video>
 
   </a-assets>
 
@@ -216,6 +218,11 @@
 
   <a-marker coc_handler id="barcode_9" type="barcode" value="9">
     <a-video src="#CoC" width="1.4375" height="1" rotation="270 0 0"></a-video>
+    <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
+  </a-marker>
+
+  <a-marker icrc_handler id="barcode_10" type="barcode" value="10">
+    <a-video src="#ICRC" width="1.4375" height="1" rotation="270 0 0"></a-video>
     <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
   </a-marker>
 
