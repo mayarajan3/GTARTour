@@ -56,6 +56,7 @@
     initVideo("iac","iac_handler");
     initVideo("skywalker_performance", "skywalker_handler")
     initVideo("VIP", "vip_handler")
+    initVideo("CoC", "coc_handler")
 
 
   // Script handling audio
@@ -130,6 +131,7 @@
     <video id="skywalker_performance" loop="true" preload="auto" src="skywalker_performance.mp4"></video>
     <video id="hive1" loop="true" preload="auto" src="hive1.mp4"></video>
     <video id="VIP" loop="true" preload="auto" src="VIP.mp4"></video>
+    <video id="CoC" loop="true" preload="auto" src="CoC_video.mp4"></video>
 
   </a-assets>
 
@@ -209,6 +211,11 @@
 
    <a-marker vip_handler id="barcode_8" type="barcode" value="8">
     <a-video src="#VIP" width="1.4375" height="1" rotation="270 0 0"></a-video>
+    <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
+  </a-marker>
+      
+  <a-marker coc_handler id="barcode_9" type="barcode" value="9">
+    <a-video src="#CoC" width="1.4375" height="1" rotation="270 0 0"></a-video>
     <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
   </a-marker>
 
