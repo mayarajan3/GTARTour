@@ -7,8 +7,6 @@
 <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<meta name="apple-mobile-web-app-capable" content="yes">
-    
 <script>
 
     // Script handling video
@@ -53,13 +51,9 @@
     }
 
     //Initialize video files and handlers
-    initVideo("scob", "vidhandler");
-    initVideo("hive1", "hive1_handler");
+    initVideo("scobt", "vidhandler")
     initVideo("iac","iac_handler");
-    initVideo("skywalker_performance", "skywalker_handler");
-    initVideo("VIP", "vip_handler");
-    initVideo("CoC", "coc_handler");
-    initVideo("ICRC", "icrc_handler");
+    initVideo("skywalker_performance", "skywalker_handler")
 
 
   // Script handling audio
@@ -129,23 +123,19 @@
     <audio id="machineShop" src="Machine_Shop.mp3" preload="auto"></audio>
     <audio id="skywalker_audio" src="SkywalkerHand.mp3" preload="auto"></audio>
     <audio id="benchtopa" src="benchtop.mp3" preload="auto"></audio>
-    <video id="scob" loop="true" preload="auto" src="scob.mp4"></video>
-    <video id="iac" loop="true" preload="auto" src="res/IACCommLab.mp4">
-    <video id="skywalker_performance" loop="true" preload="auto" src="skywalker_performance.mp4"></video>
-    <video id="hive1" loop="true" preload="auto" src="hive1.mp4"></video>
-    <video id="VIP" loop="true" preload="auto" src="VIP.mp4"></video>
-    <video id="CoC" loop="true" preload="auto" src="CoC_video.mp4"></video>
-    <video id="ICRC" loop="true" preload="auto" src="icrc_final.mp4"></video>
+    <video id="scobt" autoplay loop="true" preload="auto" src="scob test.mp4"></video>
+    <video id="iac" autoplay loop="true" preload="auto" src="res/CommLab.mp4">
+    <video id="skywalker_performance" autoplay loop="true" preload="auto" src="skywalker_performance.mp4"></video>
 
   </a-assets>
 
   <!-- https://github.com/artoolkit/ARToolKit5/tree/master/doc/patterns/Matrix%20code%203x3%20(72dpi) -->
   <!-- Hiro Marker -->
   <a-marker vidhandler id="animated-marker" preset='hiro'>
-    <!-- <a-entity sound="src: #sound" autoplay="true"></a-entity> -->
+    <a-entity sound="src: #sound" autoplay="true"></a-entity>
     <!-- 2D Image -->
     <!-- <a-image id="test" src="#my-image" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image> -->
-    <a-video id="scob" src="#scob" position="0 0 0" rotation="-90 0 0" width="24" height="13.5" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-video>
+    <a-video id="scob" src="#scobt" position="0 0 0" rotation="-90 0 0" width="24" height="13.5" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-video>
     <!-- 3D Bee Model -->
     <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
   </a-marker>
@@ -205,26 +195,6 @@
 
   <a-marker iac_handler id="barcode_6" type="barcode" value="6">
     <a-video src="#iac" width="1.4375" height="1" rotation="270 0 0"></a-video>
-    <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
-  </a-marker>
-
-   <a-marker hive1_handler id="barcode_7" type="barcode" value="7">
-    <a-video src="#hive1" width="1.4375" height="1" rotation="270 0 0"></a-video>
-    <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
-  </a-marker>
-
-   <a-marker vip_handler id="barcode_8" type="barcode" value="8">
-    <a-video src="#VIP" width="1.4375" height="1" rotation="270 0 0"></a-video>
-    <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
-  </a-marker>
-
-  <a-marker coc_handler id="barcode_9" type="barcode" value="9">
-    <a-video src="#CoC" width="1.4375" height="1" rotation="270 0 0"></a-video>
-    <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
-  </a-marker>
-
-  <a-marker icrc_handler id="barcode_10" type="barcode" value="10">
-    <a-video src="#ICRC" width="1.4375" height="1" rotation="270 0 0"></a-video>
     <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
   </a-marker>
 
