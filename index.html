@@ -6,7 +6,7 @@
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
 <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<meta name="apple-mobile-web-app-capable" content="no">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <script>
 
     // Script handling video
@@ -49,6 +49,24 @@
     // function playvid() {
     //     vid.play();
     // }
+
+    AFRAME.registerComponent('play-on-window-click', {
+
+    init: function () {
+    this.onClick = this.onClick.bind(this);
+    },
+    play: function () {
+    window.addEventListener('click', this.onClick);
+    },
+    pause: function () {
+    window.removeEventListener('click', this.onClick);
+    },
+    onClick: function (evt) {
+    var video = this.el.components.material.material.map.image;
+    if (!video) { return; }
+    video.play();
+    }
+    });
 
     document.addEventListener("DOMContentLoaded", function(event) {
     var scene = document.querySelector("a-scene");
@@ -164,7 +182,7 @@
     <audio id="machineShop" src="Machine_Shop.mp3" preload="auto"></audio>
     <audio id="skywalker_audio" src="SkywalkerHand.mp3" preload="auto"></audio>
     <audio id="benchtopa" src="benchtop.mp3" preload="auto"></audio>
-    <video id="scob" src="scob.mp4"></video>
+    <video id="scob" src="scob.mp4" playsinline webkit-playsinline></video>
     <video id="iac" loop="true" preload="auto" src="res/IACCommLab.mp4">
     <video id="skywalker_performance" loop="true" preload="auto" src="skywalker_performance.mp4"></video>
     <video id="hive1" loop="true" preload="auto" src="hive1.mp4"></video>
@@ -182,7 +200,7 @@
     <!-- 2D Image -->
     <!-- <a-image id="test" src="#my-image" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image> -->
     <a-image id="playButton" src="#buttonImg" rotation="-90 0 0" width="1" height="1"></a-image>
-    <a-video id="scob" src="#scob" position="0 0 0" rotation="-90 0 0" width="24" height="13.5" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-video>
+    <a-video id="scob" src="#scob" play-on-window-click position="0 0 0" rotation="-90 0 0" width="24" height="13.5" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-video>
     <!-- 3D Bee Model -->
     <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
   </a-marker>
