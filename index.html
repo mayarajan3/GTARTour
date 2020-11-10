@@ -50,6 +50,43 @@
         vid.play();
     }
 
+    document.addEventListener("DOMContentLoaded", function(event) {
+    var scene = document.querySelector("a-scene");
+    var vid = document.getElementById("scob");
+    var playButton = document.getElementById("playButton");
+
+    if (scene.hasLoaded) {
+      run();
+    } else {
+      scene.addEventListener("loaded", run);
+    }
+
+    playButton.addEventListener('click', function() {
+      playVideo();
+    });
+
+    function run () {
+      if(AFRAME.utils.device.isMobile()) {
+        document.querySelector('#splash').style.display = 'flex';
+        document.querySelector('#splash').addEventListener('click', function () {
+          initVideo();
+          this.style.display = 'none';
+        })
+      } else {
+          initVideo();
+      }
+    }
+
+    function initVideo () {
+      vid.play();
+      vid.pause();
+    }
+
+    function playVideo () {
+      vid.play();
+    }
+   })
+
     //Initialize video files and handlers
     initVideo("scob", "vidhandler");
     initVideo("hive1", "hive1_handler");
@@ -143,6 +180,7 @@
     <!-- <a-entity sound="src: #sound" autoplay="true"></a-entity> -->
     <!-- 2D Image -->
     <!-- <a-image id="test" src="#my-image" position="0 0 0" rotation="-90 0 0" width="10" height="10" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-image> -->
+    <img id="buttonImg" src="test.png">
     <a-video id="scob" src="#scob" position="0 0 0" rotation="-90 0 0" width="24" height="13.5" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="0.1 0.1 0.1" visible="" material="" geometry=""></a-video>
     <!-- 3D Bee Model -->
     <a-entity gltf-model="url(cartoon_bee/scene.gltf)" scale="0.1 0.1 0.1" rotation = "270 0 0" position = "-0.5 -0.5 -1"></a-entity>
