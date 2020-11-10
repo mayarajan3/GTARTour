@@ -97,12 +97,6 @@
     });
   }
 
-  var myVideo = document.getElementById("scob");
-  myVideo.addEventListener('click', function(e){
-    e.preventDefault();
-   this[this.paused ? 'play' : 'pause']();
-  });
-
   // Initialize audio files and handlers
 
   initAudio("testing.mp3", "animated-marker", "markerhandler");
@@ -133,7 +127,7 @@
     <audio id="machineShop" src="Machine_Shop.mp3" preload="auto"></audio>
     <audio id="skywalker_audio" src="SkywalkerHand.mp3" preload="auto"></audio>
     <audio id="benchtopa" src="benchtop.mp3" preload="auto"></audio>
-    <video id="scob" loop="true" preload="auto" src="scob.mp4"></video>
+    <video id="scob" loop="true" preload="auto" src="scob.mp4" webkit-playsinline></video>
     <video id="iac" loop="true" preload="auto" src="res/IACCommLab.mp4">
     <video id="skywalker_performance" loop="true" preload="auto" src="skywalker_performance.mp4"></video>
     <video id="hive1" loop="true" preload="auto" src="hive1.mp4"></video>
